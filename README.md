@@ -1,3 +1,7 @@
+Developed by: BLESSING JEFFREY Y.L<br>
+Reference number: 212223220014
+
+
 # Exp-6-Synchornous-counters - up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
@@ -32,7 +36,7 @@ The Q outputs of each flip-flop will serve as the respective binary bits of the 
  
 
 Four-bit “Up” Counter
-![image](https://user-images.githubusercontent.com/36288975/169644758-b2f4339d-9532-40c5-af40-8f4f8c942e2c.png)
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/7da534d2-b22d-4aba-942f-fc3beeba23b9)
 
 
 
@@ -41,56 +45,135 @@ Four-bit “Up” Counter
 As well as counting “up” from zero and increasing or incrementing to some preset value, it is sometimes necessary to count “down” from a predetermined value to zero allowing us to produce an output that activates when the zero count or some other pre-set value is reached.
 
 This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 4-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
-![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/c2748f5a-d48f-4ac9-9780-627149a533c3)
 
 
 4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
-![image](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/64f2ac69-ebdc-4cdb-b09b-4259a563df06)
 
+### Procedure
+1. Create a new project in Quartus II software.
+2. Name the project as uc for upcounter and dc for downcounter.
+3. Create a new Verilog HDL file in the project file.
+4. Name the module as dc and uc for downcounter and upcounter.
+5. Within the module declare input and output variables.
+6. Complete the program.
+7. End the module.
 
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: NARESH.M
-RegisterNumber:  212223220064
-*/![Screenshot 2024-01-01 221037](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/3ef63914-b31a-4183-81dd-185a1538c50f)
+### UP COUNTER
+```
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+```
+```
+### DOWN COUNTER
+
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
+```
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+```
+```
+### DOWN COUNTER
+
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
+```
+
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+```
+```
+### DOWN COUNTER
+
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
+
+## RTL LOGIC UP COUNTER AND DOWN COUNTER  
+### UP COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/c4c9b21e-4780-4f5b-8f9b-40c14d5bea63)
+
+ 
+### DOWN COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/a8dd2e75-1659-4081-974a-becc0c8f56d0)
 
 
 
+ 
+## TIMING DIGRAMS FOR COUNTER  
+### UP COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/5fc47514-a4a6-409e-a885-cc76ea144fc5)
 
 
 
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-![image](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/249f0ccd-f11a-430e-a9c5-d42d286238e1)
-
+### DOWN COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/36b44e2b-991e-454f-a207-dcec9929c6b3)
 
 
+ 
+## TRUTH TABLE
+### UP COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/8b54007f-1dc6-4d0d-a491-05f66b4927e7)
 
+ 
+### DOWN COUNTER
+![image](https://github.com/blessingjeffrey/Exp-7-Synchornous-counters-/assets/149134943/63da1ae0-360d-4e0c-a2a9-00e13a18a164)
 
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-![image](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/ce4b6fa9-6850-4504-b592-a4c7cabae63f)
-
-
-
-
-### TRUTH TABLE 
-![image](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/ffaf4837-5aad-452f-a04f-102b14d6df39)
-
-
-![Screenshot 2024-01-01 221752](https://github.com/NARESHDC/Exp-7-Synchornous-counters-/assets/149348388/8be81053-2a90-4350-bf89-1b0936bf9c85)
-
-
-
+ 
 
 ### RESULTS 
-By this we have verified the truth table of 4-bit up-counter using verilog.
+Thus we have verified the truthtable of 4-bit up and down counter using verilog.
