@@ -1,5 +1,5 @@
-Developed by: BLESSING JEFFREY Y.L<br>
-Reference number: 212223220014
+Developed by: NARESH.M
+Reference number: 212223220064
 
 
 # Exp-6-Synchornous-counters - up counter and down counter 
